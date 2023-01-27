@@ -21,7 +21,7 @@ public class ComputerController {
 
     @GetMapping
     public List<ComputerFullDto> findAll() {
-        List<Computer> computers =  computerService.findAll();
+        List<Computer> computers = computerService.findAll();
         return computers.stream().map(computer -> objectMapper.convertValue(computer, ComputerFullDto.class)).toList();
     }
 
@@ -41,6 +41,7 @@ public class ComputerController {
     public void deleteById(@PathVariable String id) {
         computerService.deleteById(id);
     }
+
     @DeleteMapping("{computerId}/comments/{commentId}")
     public Computer deleteComment(@PathVariable String computerId, @PathVariable String commentId) {
         return computerService.deleteComment(computerId, commentId);

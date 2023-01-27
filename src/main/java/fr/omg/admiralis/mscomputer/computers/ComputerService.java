@@ -17,25 +17,49 @@ public class ComputerService {
         this.commentService = commentService;
     }
 
+    /**
+     * Retourne tous les ordinateurs
+     * @return la liste des ordinateurs
+     */
     public List<Computer> findAll() {
         return computerRepository.findAll();
     }
 
+    /**
+     * Sauvegarde un ordinateur
+     * @param computer
+     * @return l'ordinateur sauvegardé
+     */
     public Computer save(Computer computer) {
         if (computer.getComments() != null) {
-            computer.getComments().forEach(comment -> commentService.save(comment));
+            computer.getComments().forEach(commentService::save);
         }
         return computerRepository.save(computer);
     }
 
+    /**
+     * Retourne un ordinateur par son id
+     * @param id
+     * @return l'ordinateur
+     */
     public Computer findById(String id) {
         return computerRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
+    /**
+     * Supprime un ordinateur par son id
+     * @param id
+     */
     public void deleteById(String id) {
         computerRepository.deleteById(id);
     }
 
+    /**
+     * Supprime un commentaire d'un ordinateur
+     * @param computerId
+     * @param commentId
+     * @return l'ordinateur
+     */
     public Computer deleteComment(String computerId, String commentId) {
         Computer computer = findById(computerId);
         computer.getComments().removeIf(comment -> comment.getId().equals(commentId));
