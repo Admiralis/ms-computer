@@ -5,7 +5,7 @@ services:
     restart: always
     container_name: ms-computer-db
     ports:
-      - "27017:27017"
+      - "27018:27017"
     environment:
       MONGO_INITDB_ROOT_USERNAME: mongoadmin
       MONGO_INITDB_ROOT_PASSWORD: secret
@@ -13,4 +13,4 @@ services:
     volumes:
       - ms-computer-db-data:/data/db
 volumes:
-  ms-course-db-data:
+  ms-computer-db-data:
