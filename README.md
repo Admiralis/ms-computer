@@ -50,6 +50,6 @@ Computer "1" o-- "*" Comment
 ### Swagger
 
 Le swagger est disponible à l'adresse suivante :
-- http://localhost:8080/api-docs
+- http://localhost:8081/api-docs
 
 
