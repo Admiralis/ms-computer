@@ -52,4 +52,10 @@ public class ComputerController {
     public Computer deleteComment(@PathVariable String computerId, @PathVariable String commentId) {
         return computerService.deleteComment(computerId, commentId);
     }
+
+    @GetMapping("/search")
+    public ComputerFullDto search(@RequestParam String serialNumber) {
+        Computer computers = computerService.findBySerialNumber(serialNumber);
+        return objectMapper.convertValue(computers, ComputerFullDto.class);
+    }
 }

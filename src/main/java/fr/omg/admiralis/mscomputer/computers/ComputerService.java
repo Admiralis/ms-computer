@@ -1,11 +1,14 @@
 package fr.omg.admiralis.mscomputer.computers;
 
 import fr.omg.admiralis.mscomputer.comments.CommentService;
+import org.springframework.data.domain.Example;
+import org.springframework.data.repository.query.FluentQuery;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.function.Function;
 
 @Service
 public class ComputerService {
@@ -85,5 +88,9 @@ public class ComputerService {
         }
         computerRepository.save(computer);
         return findById(computer.getId());
+    }
+
+    public Computer findBySerialNumber(String serialNumber) {
+        return computerRepository.findBySerialNumber(serialNumber);
     }
 }
