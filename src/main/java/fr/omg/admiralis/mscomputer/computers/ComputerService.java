@@ -37,6 +37,16 @@ public class ComputerService {
         if (computer.getComments() != null) {
             computer.getComments().forEach(commentService::save);
         }
+
+        if (computer.getSerialNumber() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Le numéro de série est requis !");
+        }
+
+        Computer existingComputer = computerRepository.findBySerialNumber(computer.getSerialNumber());
+        if (existingComputer != null) {
+            return existingComputer;
+        }
+
         return computerRepository.save(computer);
     }
 
