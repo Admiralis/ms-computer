@@ -31,8 +31,14 @@ public class ComputerController {
         return objectMapper.convertValue(computer, ComputerFullDto.class);
     }
 
+    @PostMapping("{id}")
+    public ComputerFullDto postUpdate(@PathVariable String id, @RequestBody Computer newComputer) {
+        Computer computer = computerService.update(id, newComputer);
+        return objectMapper.convertValue(computer, ComputerFullDto.class);
+    }
+
     @PatchMapping("{id}")
-    public ComputerFullDto update(@PathVariable String id, @RequestBody Computer newComputer) {
+    public ComputerFullDto patchUpdate(@PathVariable String id, @RequestBody Computer newComputer) {
         Computer computer = computerService.update(id, newComputer);
         return objectMapper.convertValue(computer, ComputerFullDto.class);
     }
