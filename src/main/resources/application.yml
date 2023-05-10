@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://mongoadmin:secret@localhost:27018/computers?authSource=admin
+      uri: mongodb://mongoadmin:secret@localhost:27017/computers?authSource=admin
       database: computers
   devtools:
     restart:
