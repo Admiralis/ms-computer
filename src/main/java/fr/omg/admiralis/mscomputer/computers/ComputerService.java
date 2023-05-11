@@ -109,6 +109,7 @@ public class ComputerService {
         computer.setComputerStatus(updateComputer.getComputerStatus());
         updateComputer.getComments().forEach(commentService::save);
         computer.setComments(updateComputer.getComments());
+        computer.setCategory(updateComputer.getCategory());
         computerRepository.save(computer);
         return findById(id);
     }
