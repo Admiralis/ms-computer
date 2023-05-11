@@ -80,24 +80,24 @@ public class ComputerService {
     }
 
     public Computer update(String id, Computer updateComputer) {
-        Computer computer = findById(id);
-        if (updateComputer.getSerialNumber() != null) {
-            computer.setSerialNumber(updateComputer.getSerialNumber());
-        }
-        if (updateComputer.getProcessor() != null) {
-            computer.setProcessor(updateComputer.getProcessor());
-        }
-        if (updateComputer.getRam() != null) {
-            computer.setRam(updateComputer.getRam());
-        }
-        if (updateComputer.getCondition() != null) {
-            computer.setCondition(updateComputer.getCondition());
-        }
-        if (updateComputer.getComputerStatus() != null) {
-            computer.setComputerStatus(updateComputer.getComputerStatus());
-        }
-        computerRepository.save(computer);
-        return findById(computer.getId());
+//        Computer computer = findById(id);
+//        if (updateComputer.getSerialNumber() != null) {
+//            computer.setSerialNumber(updateComputer.getSerialNumber());
+//        }
+//        if (updateComputer.getProcessor() != null) {
+//            computer.setProcessor(updateComputer.getProcessor());
+//        }
+//        if (updateComputer.getRam() != null) {
+//            computer.setRam(updateComputer.getRam());
+//        }
+//        if (updateComputer.getCondition() != null) {
+//            computer.setCondition(updateComputer.getCondition());
+//        }
+//        if (updateComputer.getComputerStatus() != null) {
+//            computer.setComputerStatus(updateComputer.getComputerStatus());
+//        }
+        computerRepository.save(updateComputer);
+        return findById(id);
     }
 
     public Computer findBySerialNumber(String serialNumber) {
