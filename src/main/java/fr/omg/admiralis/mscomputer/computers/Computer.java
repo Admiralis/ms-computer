@@ -22,6 +22,7 @@ public class Computer {
     private String ram;
     private String condition;
     private ComputerStatus computerStatus;
+    private String category;
     @DBRef
     private List<Comment> comments;
 }
