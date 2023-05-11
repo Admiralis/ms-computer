@@ -100,6 +100,20 @@ public class ComputerService {
         return findById(id);
     }
 
+    public Computer replace(String id, Computer updateComputer) {
+        Computer computer = findById(id);
+        computer.setSerialNumber(updateComputer.getSerialNumber());
+        computer.setProcessor(updateComputer.getProcessor());
+        computer.setRam(updateComputer.getRam());
+        computer.setCondition(updateComputer.getCondition());
+        computer.setComputerStatus(updateComputer.getComputerStatus());
+        computer.setComments(updateComputer.getComments());
+        computerRepository.save(computer);
+        return findById(id);
+    }
+
+
+
     public Computer findBySerialNumber(String serialNumber) {
         return computerRepository.findBySerialNumber(serialNumber);
     }
