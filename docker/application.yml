@@ -12,6 +12,17 @@ spring:
       port: 35730
 springdoc:
   swagger-ui:
-    path: /api-docs
+    path: '/api/computers/docs'
+  api-docs:
+    path: '/api/computers/docs'
 server:
   port: 80
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: 'health,info'
+    web:
+      base-path: '/api/computers'
+      path-mapping:
+        health: /health
